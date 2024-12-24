@@ -11,11 +11,24 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    overflow-x: hidden;
+    height: 100%;
+
   }
 }
 
 body {
+  height: 100%;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  background-color: black;
+  
+}
+
+
+html {
+  height: 100%;
+
 }

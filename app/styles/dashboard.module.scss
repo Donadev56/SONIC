@@ -1,0 +1,468 @@
+.dashboard {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: auto, auto;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: fixed;
+    background-position: top 0 left 40%, 0 0;
+    background-repeat: no-repeat;
+    background-size: auto, auto;
+    background-image: url(../assets/bg/download-3.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.topNav {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    z-index: 1000;
+    display: flex;
+    width: 100%;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(15px);
+
+}
+.topNavContainer {
+    margin-top: 10px;
+    display: flex;
+    width: 90%;
+    height: 70px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    background-position: top 0 left 40%, 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    cursor: pointer;
+   
+    padding: 2px;
+    &:hover {
+        color: rgb(255, 179, 0);
+    }
+    &:hover  > svg{
+      stroke: rgb(255, 179, 0); // Change la couleur des textes dans .nav au survol
+    }
+  
+    svg {
+      stroke: white;
+  
+      &:hover {
+        stroke: rgb(255, 179, 0) !important; // Change la couleur du SVG au survol
+      }
+    }
+  }
+  
+@media (max-width: 768px) {
+    .nav {
+        font-size: 13px;
+    }
+}
+
+.dashBoardData {
+
+    position: relative;
+    margin-top: 130px;
+    display: flex;
+    width: 90%;
+    padding: 10px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    background-position: top 0 left 40%, 0 0;
+    background-repeat: no-repeat;
+    background-size: auto, auto;
+    background-size: cover;
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 2px;
+       width: 90%;
+       padding: 10px;
+       .userAddressContainer {
+        display: flex;
+        gap: 10px;
+        padding-left: 10px;
+
+        .userAddress {
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(255, 179, 0);
+        }
+       }
+       .walletbalanceContainer {
+        
+        margin: 5px;
+        padding-left: 10px;
+        border-radius: 15px;
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        padding-block: 10px;
+        background-size: cover;
+        gap: 5px;
+        font-weight: 100;
+
+        .walletBalance {
+            color: rgb(255, 179, 0);
+            font-weight: bold;
+            font-size: 25px;
+        }
+       }
+    }
+}
+
+
+.profileData {
+    display: flex;
+    gap: 15px;
+    font-weight: 200;
+    margin: 4px;
+
+}
+
+.dataValue {
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+
+
+.packagesConatiner {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    width: 90%;
+    justify-content: center;
+    align-items: left;
+    gap: 10px ;
+    flex-direction : column;
+}
+
+.packages {
+    max-width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+}
+.package {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(19, 19, 19, 0.71);
+    background-size: cover;
+    overflow: hidden;
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 10%;
+}
+
+.cardPrice {
+    font-weight: bold;
+}
+.purchaseButton {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 20px;
+    color: black;
+    width: 70%;
+    background-color: white;
+    transition: all 0.5s;
+    &:hover {
+        background-color: transparent;
+        border:  4px solid white;
+        color: white;
+    }
+}
+
+.cardPrice {
+    font-size: 24px;
+}
+
+.referralLink {
+    position: relative;
+    margin-top: 20px;
+   
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    gap: 10px;
+    .ref {
+        background-color: rgba(255, 255, 255, 0.036);
+        background-size: auto, auto;
+        backdrop-filter: blur(5px);
+        border-radius: 15px;
+        margin: 10px;
+       padding: 10px;
+       display: flex;
+       flex-direction: column;
+       gap: 13px;
+    }
+
+    .refLinkConatiner {
+        display: flex;
+        gap: 10px;
+        justify-content: left;
+        align-items: center;
+        width: 90%;
+       
+        input {
+            border-radius: 20px;
+
+            background-color:transparent;
+            border: 1px solid rgba(255, 255, 255, 0.287);
+            padding: 10px;
+            width: 100%;
+            max-width: 500px;
+            font-size: 13px;
+            &:focus {
+                outline: none;
+            }
+
+        }
+    }
+    button {
+        padding: 10px;
+        border-radius: 20px;
+        color: white;
+        transition: all 0.5s;
+        &:hover {
+          
+            color:  rgb(255, 179, 0);
+        }
+    }
+
+}
+
+.teamAndGain {
+    margin-top: 20px;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+
+    .tmgDataConatiner  {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+        flex-direction: column;
+        .tgmSprt {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            align-items: center;
+            justify-content:space-around;
+            width: 100%;
+         
+        }
+    }
+
+  
+
+}
+
+.tmgData{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.036);
+    background-size: auto, auto;
+    backdrop-filter: blur(5px);}
+
+@media (max-width: 768px) {
+    .tgmSprt {
+    flex-direction: column;
+    }
+}
+
+.tmgDataValue {
+    padding: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(255, 179, 0);
+}
+.transactions {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  
+  .transactionsTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .transactionsContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto; /* Permet le défilement horizontal */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .transactionsHeader,
+  .transactionRow {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr; /* Ajuste les colonnes */
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+  }
+  
+  .transactionsHeader {
+    background-color: rgba(255, 255, 255, 0.154);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .transactionRow {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+  }
+  
+  .transactionRow:nth-child(even) {
+  }
+  
+  .transactionRow:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .transactionRow div,
+  .transactionsHeader div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Empêche le texte de déborder */
+  }
+  
+  .transactionsHeader div {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .transactionRow div {
+    font-size: 12px;
+  }
+  
+  .noTransactions {
+    text-align: center;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+  }
+  
+  .activated {
+    background-color: orange;
+    font-weight: bold;
+    &:hover {
+        background-color: transparent;
+        border:  4px solid orange;
+        color: orange;
+    }
+  }
+
+  .loaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    background: rgba(136, 136, 136, 0.252);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    animation: pulsOut 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.75));
+  }
+  .loader:before {
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: inset 0 0 0 1rem #fff;
+    animation-name: pulsIn;
+  }
+  .loader:after {
+    width: calc(100% - 2rem);
+    padding-bottom: calc(100% - 2rem);
+    box-shadow: 0 0 0 0 #fff;
+  }
+
+  @keyframes pulsIn {
+    0% {
+      box-shadow: inset 0 0 0 1rem #fff;
+      opacity: 1;
+    }
+    50%, 100% {
+      box-shadow: inset 0 0 0 0 #fff;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulsOut {
+    0%, 50% {
+      box-shadow: 0 0 0 0 #fff;
+      opacity: 0;
+    }
+    100% {
+      box-shadow: 0 0 0 1rem #fff;
+      opacity: 1;
+    }
+  }
+
