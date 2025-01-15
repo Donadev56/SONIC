@@ -10,7 +10,7 @@ import { GetUserAddress } from '@/app/utils/users'
 import { InitEthereumWeb3 } from '@/app/web3/web3'
 import {Web3} from 'web3'
 import { getUserData, getUserTeamData } from '@/app/contract/regContract/getters'
-import { GetUserHistories, getUserVrData } from '@/app/contract/vrContract/getter'
+import { GetUserHistories, getUserLevel, getUserVrData } from '@/app/contract/vrContract/getter'
 import { TopDashBoard } from '@/app/components/icons/top'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -196,12 +196,18 @@ export default function Dashboard () {
       const getVrData = async(address : string)=> {
         try {
             const vrData = await getUserVrData(address)
+            const levelResponse = await getUserLevel(address)
             console.log(vrData)
             if (vrData.success) {
                 if (typeof vrData.response !== 'string') {
                     setVrData(vrData.response)
-                    setLevel(vrData.response.currentUserLevel)
                  }
+                }
+
+                if (levelResponse.success) {
+                  if (typeof levelResponse.response !== "string") {
+                    setLevel(Number(levelResponse.response))
+                  }
                 }
             
         } catch (error) {

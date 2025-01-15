@@ -138,7 +138,32 @@ const initWeb3 = async () => {
     }
   };
   
-  
+export const getUserlevel =  async (address : string)=> {
+  try {
+    
+ 
+  const init = await initWeb3();
+  let contract 
+  if (init.success) {
+      if (typeof init.response !== "string") {
+         contract = init.response.vrContractInstance
+      }
+
+  }
+
+  const userLevelResponse = String( await contract?.methods.userLevel(address).call() )
+  if (userLevelResponse) {
+    return {success : true , response : userLevelResponse}
+  } else {
+    return {success : false , response : "the reponse is undefined"}
+  }
+
+} catch (error) {
+  console.error(error)
+  return {success : false , response : error as string}
+    
+}
+}
 
 export const GetLastEvents = async () => {
     try {

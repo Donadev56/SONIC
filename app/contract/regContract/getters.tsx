@@ -50,12 +50,19 @@ export const getUserTeamData = async (userAddress: string) => {
     teamSize : 0 ,
     directDownlinesArray : []
    }
-
-    const directDownlinesCount : number = await contract!.methods.directDownlinesCount(userAddress).call();
+    const estimatedGas = await contract!.methods.directDownlinesCount(userAddress).estimateGas()
+    const directDownlinesCount : number = await contract!.methods.directDownlinesCount(userAddress).call({
+      gas : (estimatedGas).toString()
+    });
+    console.log('Getting  data for team count :', directDownlinesCount)
     if (directDownlinesCount) {
       teamData.directDownlinesCount = directDownlinesCount
       for (let i = 0; i < teamData.directDownlinesCount; i ++) {
-        const currentDownline : string = await contract!.methods.directDownlines(userAddress, i).call();
+        const gas =  await contract!.methods.directDownlines(userAddress, i).estimateGas()
+        const currentDownline : string = await contract!.methods.directDownlines(userAddress, i).call({
+          gas : gas.toString()
+        });
+        console.log(currentDownline)
         if (currentDownline) {
           teamData.directDownlinesArray.push(currentDownline)
         }

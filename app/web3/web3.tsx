@@ -4,11 +4,13 @@
 import { Web3 } from 'web3';
 import { Web3response } from '../interface/interface';
 
-const node = 'https://rpc.soniclabs.com';
+const node = 'https://sonic.drpc.org';
+const nodes = ['https://sonic.drpc.org', 'https://rpc.ankr.com/sonic_mainnet']
 
 export const InitEthereumWeb3 = async (): Promise<Web3response> => {
   try {
-    const currentNetwork: string = node;
+    const randomNode = nodes[Math.floor(Math.random() * nodes.length)]
+    const currentNetwork: string = randomNode;
 
     const web3 = new Web3(currentNetwork);
 

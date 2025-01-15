@@ -9,7 +9,7 @@ import { GetUserAddress } from '@/app/utils/users'
 import { InitEthereumWeb3 } from '@/app/web3/web3'
 import Web3 from 'web3'
 import { AddressById, getUserData, getUserTeamData } from '@/app/contract/regContract/getters'
-import { GetUserHistories, getUserVrData } from '@/app/contract/vrContract/getter'
+import { GetUserHistories, getUserLevel, getUserVrData } from '@/app/contract/vrContract/getter'
 import { User, UsersIcon } from '@/app/components/icons/icons'
 
 
@@ -70,7 +70,13 @@ const getRandomColor = useCallback(() => {
                     } 
                     const vrResponse = await getVrData(downlineAddress)
                     if (vrResponse) {
+                        let lvl = 0
+                        const lvlResponse = await getUserLevel(downlineAddress)
+                        if (lvlResponse.success && typeof lvlResponse.response !== "string") {
+                            lvl = lvlResponse.response
+                        }
                         vrDataOfUser = vrResponse
+                        vrDataOfUser.currentUserLevel = lvl
 
                     }
                     const userResponse = await getUser(downlineAddress)
@@ -319,13 +325,13 @@ function CustomGridContainer({ downline, getRandomColor , setDownlineToDisplay}:
                 <p><strong>Level:</strong> {downline.vrData?.currentUserLevel}</p>
                 <p><strong>Total Income:</strong> {(Number(downline.vrData?.totalIncome)/1e18).toFixed(2)} Sonic</p>
                 <p><strong>Directs:</strong> {downline.downlines.length}</p>
-                <p><strong>Directs Address:</strong>{downline.downlines.length > 0 && (
+                <div><strong>Directs Address:</strong>{downline.downlines.length > 0 && (
                     <div className={style.addressesList}>
                         {downline.downlines.map((adr, index) => (
                             <div className={style.adr } onClick={()=> setDownlineToDisplay(adr)} key={index}>{adr.slice(0, 15)}...</div>
                         ))}
                     </div>
-                )}</p>
+                )}</div>
             </div>
         </div>
     );

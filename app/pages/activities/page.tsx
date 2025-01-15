@@ -96,7 +96,7 @@ export default function Activities () {
 <div className={style.users}>
     <h2>Total Earned</h2>
     <div className={style.stats}>
-        {(totalEarned)/1e18} SONIC
+        {totalEarned && ((totalEarned)/1e18).toFixed(0)} SONIC
     </div>
 
 </div>
